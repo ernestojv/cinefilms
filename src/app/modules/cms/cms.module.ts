@@ -14,6 +14,9 @@ import { UpdateMovieComponent } from './pages/movie/update-movie/update-movie.co
 import { CategoryComponent } from './pages/category/category.component';
 import { AddCategoryComponent } from './pages/category/add-category/add-category.component';
 import { UpdateCategoryComponent } from './pages/category/update-category/update-category.component';
+import { TheaterComponent } from './pages/theater/theater.component';
+import { AddTheaterComponent } from './pages/theater/add-theater/add-theater.component';
+import { UpdateTheaterComponent } from './pages/theater/update-theater/update-theater.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { UpdateCategoryComponent } from './pages/category/update-category/update
     UpdateMovieComponent,
     CategoryComponent,
     AddCategoryComponent,
-    UpdateCategoryComponent
+    UpdateCategoryComponent,
+    TheaterComponent,
+    AddTheaterComponent,
+    UpdateTheaterComponent
   ],
   imports: [
     CommonModule,

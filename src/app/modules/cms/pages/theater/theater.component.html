@@ -1,6 +1,6 @@
 <div class="grid grid-cols-2 p-8 gap-8">
   <div class="min-w-0 flex-1 self-center">
-    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Categorias</h2>
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Salas</h2>
   </div>
   <div class="flex justify-self-end self-center">
     <span class="sm:ml-3">
@@ -13,16 +13,21 @@
   </div>
 
   <section class="col-span-2">
-    <div class="bg-sky-600 grid grid-cols-1 md:grid-cols-2 text-white font-medium p-4 rounded-t-md">
-      <p>Nombre</p>
-      <p class="hidden md:block">ID</p>
+    <div class="bg-sky-600 grid grid-cols-3 text-white font-medium p-4 rounded-t-md">
+      <p class="md:hidden">Sala</p>
+      <p class="hidden md:block">Nombre</p>
+      <p class="hidden md:block">Tamaño</p>
+      <p class="hidden md:block">Número</p>
     </div>
-    <div *ngFor="let category of categories">
-      <div class="grid grid-cols-1 gap-2 md:grid-cols-2 p-4 border-b border-gray-200 bg-white items-center">
-        <p class="font-medium">{{category.name}}</p>
-        <div class="grid grid-cols-2 justify-between items-center">
-          <p class="hidden md:block">{{category._id}}</p>
-          <button [routerLink]="['./update', category._id]" type="button"
+    <div *ngFor="let theater of theaters">
+      <div class="grid grid-cols-1 gap-2 md:grid-cols-3 p-4 border-b border-gray-200 bg-white items-center">
+        <p class="font-medium">{{theater.name}}</p>
+        <p>{{theater.rows}} Filas, {{theater.columns}} Columnas</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 justify-between items-center">
+          <p>
+            <span class="md:hidden">Número: </span> {{theater.number}}
+          </p>
+          <button [routerLink]="['./update', theater._id]" type="button"
             class="justify-self-end inline-flex w-32 items-center justify-center rounded-md border border-transparent bg-sky-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
             <em class="pi pi-pencil mr-2 self-center"></em>
             Editar
@@ -31,5 +36,4 @@
       </div>
     </div>
   </section>
-
 </div>
