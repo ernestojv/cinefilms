@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MovieDetailComponent } from './pages/movie/movie-detail/movie-detail.component';
 import { UpdateMovieComponent } from './pages/movie/update-movie/update-movie.component';
 import { CategoryComponent } from './pages/category/category.component';
+import { AddCategoryComponent } from './pages/category/add-category/add-category.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CategoryComponent } from './pages/category/category.component';
     AddmovieComponent,
     MovieDetailComponent,
     UpdateMovieComponent,
-    CategoryComponent
+    CategoryComponent,
+    AddCategoryComponent
   ],
   imports: [
     CommonModule,
