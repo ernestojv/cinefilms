@@ -1,0 +1,58 @@
+<div class="grid grid-cols-2 p-8 gap-8">
+  <div class="min-w-0 flex-1 self-center">
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Detalle de pelicula
+    </h2>
+  </div>
+  <div class="flex justify-self-end self-center">
+    <span class="sm:ml-3">
+      <button routerLink="../update" type="button"
+        class="inline-flex items-center justify-center rounded-md border border-transparent bg-sky-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
+        <em class="pi pi-pencil mx-2 self-center"></em>
+        Editar
+      </button>
+    </span>
+  </div>
+
+  <div *ngIf="movie != null" class="overflow-hidden bg-white shadow sm:rounded-lg col-span-2">
+    <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg font-medium leading-6 text-gray-900 pb-4">{{movie.name}}</h3>
+      <div class="border-t border-gray-200">
+        <dl>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Fecha de estreno</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{movie.realeaseDate}}</dd>
+          </div>
+          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Duración</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{movie.duration}} Minutos</dd>
+          </div>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Categoria</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{movie.categoryId.name}}</dd>
+          </div>
+          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Categoria MPAA</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{movie.mpaaCategory}}</dd>
+          </div>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Descripción</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{movie.description}}</dd>
+          </div>
+          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Imagen</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+              <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200">
+                <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+                  <div class="items-center">
+                    <img class="h-36 w-auto" [src]="movie.image">
+                  </div>
+                </li>
+
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+  </div>

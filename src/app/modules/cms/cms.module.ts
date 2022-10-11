@@ -9,6 +9,7 @@ import { MovieComponent } from './pages/movie/movie.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { AddmovieComponent } from './pages/movie/addmovie/addmovie.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MovieDetailComponent } from './pages/movie/movie-detail/movie-detail.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     MovieComponent,
     MovieCardComponent,
-    AddmovieComponent
+    AddmovieComponent,
+    MovieDetailComponent
   ],
   imports: [
     CommonModule,

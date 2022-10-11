@@ -6,7 +6,7 @@ export interface Movie {
   mpaaCategory: string;
   format: string;
   description: string;
-  categoryId: Object;
+  categoryId: any;
   image: string;
 }
 
