@@ -13,7 +13,8 @@
   </div>
   <div class="col-span-2 movies-grid">
     <div *ngFor="let movie of movies">
-      <app-movie-card [image]="movie.image" [name]="movie.name" [realeaseDate]="movie.realeaseDate" [format]="movie.format"></app-movie-card>
+      <app-movie-card [routerLink]="['./detail', movie._id]" [image]="movie.image" [name]="movie.name"
+        [realeaseDate]="movie.realeaseDate" [format]="movie.format"></app-movie-card>
     </div>
 
   </div>

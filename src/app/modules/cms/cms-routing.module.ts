@@ -5,6 +5,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { AddmovieComponent } from './pages/movie/addmovie/addmovie.component';
 import { MovieDetailComponent } from './pages/movie/movie-detail/movie-detail.component';
+import { UpdateMovieComponent } from './pages/movie/update-movie/update-movie.component';
+import { CategoryComponent } from './pages/category/category.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,12 @@ const routes: Routes = [
       {
         path: 'movie/detail/:id',
         component: MovieDetailComponent,
+      }, {
+        path: 'movie/update/:id',
+        component: UpdateMovieComponent
+      }, {
+        path: 'category',
+        component: CategoryComponent
       }
     ]
   }

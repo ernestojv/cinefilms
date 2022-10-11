@@ -10,6 +10,8 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { AddmovieComponent } from './pages/movie/addmovie/addmovie.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MovieDetailComponent } from './pages/movie/movie-detail/movie-detail.component';
+import { UpdateMovieComponent } from './pages/movie/update-movie/update-movie.component';
+import { CategoryComponent } from './pages/category/category.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { MovieDetailComponent } from './pages/movie/movie-detail/movie-detail.co
     MovieComponent,
     MovieCardComponent,
     AddmovieComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    UpdateMovieComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,
