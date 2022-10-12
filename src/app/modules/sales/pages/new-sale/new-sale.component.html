@@ -1,0 +1,178 @@
+<div class="grid p-8 gap-8">
+  <div class="min-w-0 flex-1">
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Nueva venta
+    </h2>
+  </div>
+
+  <div *ngIf="movie == null">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:col-span-3 md:mt-0">
+        <form [formGroup]="movieForm">
+          <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="bg-white px-4 py-5 sm:p-6">
+              <div class="col-span-6">
+                <label for="movie" class="block text-sm font-medium text-gray-700">Pelicula</label>
+                <select formControlName="movie" id="movie" name="movie"
+                  class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                  <option *ngFor="let movie of movies" [value]="movie._id">{{movie.name}} - {{movie.format}}</option>
+                </select>
+              </div>
+
+              <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                <button (click)="selectMovie()" type="submit"
+                  class="inline-flex justify-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">Siguiente</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="movie && purchase.showId == null">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:col-span-3 md:mt-0">
+        <form [formGroup]="showForm">
+          <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="bg-white px-4 py-5 sm:p-6">
+              <div class="col-span-6">
+                <label for="show" class="block text-sm font-medium text-gray-700">Funcion</label>
+                <select formControlName="show" id="show" name="show"
+                  class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                  <option *ngFor="let show of shows" [value]="show._id">{{show.theaterId.name}} - {{show.dateTime |
+                    date:'short'}}</option>
+                </select>
+              </div>
+
+              <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                <button (click)="selectShow()" type="submit"
+                  class="inline-flex justify-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">Siguiente</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="seats.length > 0 && purchase.seats.length == 0">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:col-span-3 md:mt-0">
+        <div class="overflow-hidden shadow sm:rounded-md">
+          <div class="bg-white px-4 py-5 sm:p-6">
+            <div class="col-span-6">
+              <p class="font-medium text-lg">Seleccionar asientos</p>
+              <div class="p-8">
+                <div
+                  class="w-full h-8 my-6 bg-sky-600 rounded-md text-white flex items-center justify-center font-medium">
+                  Pantalla
+                </div>
+                <div class="grid grid-cols-12 gap-4 items-center justify-center">
+                  <div *ngFor="let seat of seats" class="col-span-1">
+                    <div class="flex items-center justify-center rounded-md">
+                      <input type="checkbox" [id]="seat.seat" [value]="seat.seat" (change)="selectSeat(seat)" />
+                      <label [for]="seat.seat" class="ml-2">{{seat.seat}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                <button (click)="selectSeats()" type="submit"
+                  class="inline-flex justify-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">Siguiente</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="products.length > 0">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:col-span-3 md:mt-0">
+        <form [formGroup]="productForm">
+          <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="bg-white px-4 py-5 sm:p-6">
+              <div class="col-span-6">
+                <p class="font-medium text-lg">Añadir comida</p>
+                <label for="product" class="block text-sm font-medium text-gray-700">Producto</label>
+                <select formControlName="product" id="product" name="product"
+                  class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                  <option *ngFor="let product of products" [value]="product._id">{{product.name}} - {{product.price |
+                    currency:'Q'}}</option>
+                </select>
+              </div>
+
+              <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                <button (click)="selectProduct()" type="submit"
+                  class="inline-flex justify-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">Añadir</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="products.length > 0">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:col-span-3 md:mt-0">
+        <div class="overflow-hidden shadow sm:rounded-md">
+          <div class="bg-white px-4 py-5 sm:p-6">
+            <div class="col-span-6">
+              <p class="font-medium text-lg">Resumen de la compra</p>
+              <ul role="list" class="-my-6 divide-y divide-gray-200">
+                <li class="flex py-6">
+                  <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                    <img src="../../../../../assets/cinema.png"
+                      class="h-full w-full object-cover object-center">
+                  </div>
+
+                  <div class="ml-4 flex flex-1 flex-col">
+                    <div>
+                      <div class="flex justify-between text-base font-medium text-gray-900">
+                        <h3>
+                          <p>Entradas</p>
+                        </h3>
+                        <p class="ml-4">{{purchase.seats.length*purchase.showId.price | currency:'Q'}}</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-1 items-end justify-between text-sm">
+                      <p class="text-gray-500">Cantidad: {{purchase.seats.length}}</p>
+                    </div>
+                  </div>
+                </li>
+
+                <li *ngFor="let product of purchase.productsId" class="flex py-6">
+                  <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                    <img [src]="product.image"
+                      class="h-full w-full object-cover object-center">
+                  </div>
+
+                  <div class="ml-4 flex flex-1 flex-col">
+                    <div>
+                      <div class="flex justify-between text-base font-medium text-gray-900">
+                        <h3>
+                          <p>{{product.name}}</p>
+                        </h3>
+                        <p class="ml-4">{{product.price | currency:'Q'}}</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-1 items-end justify-between text-sm">
+                      <p class="text-gray-500">{{product.description}}</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+              <button (click)="addPurchase()" type="submit"
+                class="inline-flex justify-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
         break;
       case 'employee':
-        this.router.navigate(['/idk']);
+        this.router.navigate(['/sales']);
         break;
     }
   }
@@ -64,32 +64,28 @@ export class LoginComponent implements OnInit {
     let email = this.loginForm.value.email ? this.loginForm.value.email : '';
     let password = this.loginForm.value.password ? this.loginForm.value.password : '';
 
-    try {
-      this.authService.login(email, password).subscribe(user => {
-        if (user) {
-          Swal.fire({
-            title: 'Bienvenido',
-            text: 'Inicio de sesión exitoso',
-            icon: 'success',
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500
-          });
-          window.location.reload();
-        }
-      });
-    } catch (error: any) {
-      Swal.fire({
-        title: 'Error',
-        text: error.message,
-        icon: 'error',
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 1500
-      });
-    }
-
-
+    this.authService.login(email, password).subscribe({
+      next: () => {
+        Swal.fire({
+          title: 'Bienvenido',
+          text: 'Inicio de sesión exitoso',
+          icon: 'success',
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        window.location.reload();
+      },
+      error: (error: any) => {
+        Swal.fire({
+          title: 'Error',
+          text: error.error.message,
+          icon: 'error',
+          position: 'top-end',
+          showConfirmButton: true,
+        });
+      }
+    })
   }
-
 }
+
