@@ -12,6 +12,10 @@ import { UpdateCategoryComponent } from './pages/category/update-category/update
 import { TheaterComponent } from './pages/theater/theater.component';
 import { AddTheaterComponent } from './pages/theater/add-theater/add-theater.component';
 import { UpdateTheaterComponent } from './pages/theater/update-theater/update-theater.component';
+import { ShowComponent } from './pages/show/show.component';
+import { AddShowComponent } from './pages/show/add-show/add-show.component';
+import { ShowDetailComponent } from './pages/show/show-detail/show-detail.component';
+import { UpdateShowComponent } from './pages/show/update-show/update-show.component';
 
 const routes: Routes = [
   {
@@ -61,6 +65,22 @@ const routes: Routes = [
       {
         path: 'theater/update/:id',
         component: UpdateTheaterComponent
+      },
+      {
+        path: 'show',
+        component: ShowComponent
+      },
+      {
+        path: 'show/add',
+        component: AddShowComponent
+      },
+      {
+        path: 'show/detail/:id',
+        component: ShowDetailComponent
+      },
+      {
+        path: 'show/update/:id',
+        component: UpdateShowComponent
       }
     ]
   }

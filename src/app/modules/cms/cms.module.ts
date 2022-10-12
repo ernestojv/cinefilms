@@ -17,6 +17,10 @@ import { UpdateCategoryComponent } from './pages/category/update-category/update
 import { TheaterComponent } from './pages/theater/theater.component';
 import { AddTheaterComponent } from './pages/theater/add-theater/add-theater.component';
 import { UpdateTheaterComponent } from './pages/theater/update-theater/update-theater.component';
+import { ShowComponent } from './pages/show/show.component';
+import { AddShowComponent } from './pages/show/add-show/add-show.component';
+import { UpdateShowComponent } from './pages/show/update-show/update-show.component';
+import { ShowDetailComponent } from './pages/show/show-detail/show-detail.component';
 
 
 @NgModule({
@@ -34,7 +38,11 @@ import { UpdateTheaterComponent } from './pages/theater/update-theater/update-th
     UpdateCategoryComponent,
     TheaterComponent,
     AddTheaterComponent,
-    UpdateTheaterComponent
+    UpdateTheaterComponent,
+    ShowComponent,
+    AddShowComponent,
+    UpdateShowComponent,
+    ShowDetailComponent
   ],
   imports: [
     CommonModule,
