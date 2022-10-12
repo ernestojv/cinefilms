@@ -18,6 +18,9 @@ import { UpdateShowComponent } from './pages/show/update-show/update-show.compon
 import { ProductComponent } from './pages/product/product.component';
 import { AddProductComponent } from './pages/product/add-product/add-product.component';
 import { UpdateProductComponent } from './pages/product/update-product/update-product.component';
+import { UserComponent } from './pages/user/user.component';
+import { AddUserComponent } from './pages/user/add-user/add-user.component';
+import { UpdateUserComponent } from './pages/user/update-user/update-user.component';
 
 const routes: Routes = [
   {
@@ -91,6 +94,18 @@ const routes: Routes = [
       {
         path: 'product/update/:id',
         component: UpdateProductComponent
+      },
+      {
+        path: 'user',
+        component: UserComponent
+      },
+      {
+        path: 'user/add',
+        component: AddUserComponent
+      },
+      {
+        path: 'user/update/:email',
+        component: UpdateUserComponent
       }
     ]
   }
