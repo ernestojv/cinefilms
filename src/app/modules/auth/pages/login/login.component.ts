@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/cms']);
         break;
       case 'user':
-        this.router.navigate(['/home']);
+        this.router.navigate(['/clients']);
         break;
       case 'employee':
         this.router.navigate(['/sales']);

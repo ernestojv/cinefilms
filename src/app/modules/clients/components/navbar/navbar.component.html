@@ -1,4 +1,4 @@
-<nav *ngIf="user" class="bg-sky-600">
+<nav class="bg-sky-600">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center">
@@ -7,16 +7,28 @@
         </div>
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4">
-            <a routerLink="/sales/new-sale"
-              [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/sales/new-sale')}"
-              class="text-gray-200 hover:bg-sky-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Nueva venta</a>
+            <a routerLink="/clients/home"
+              [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/clients/home')}"
+              class="text-gray-200 hover:bg-sky-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+
+              <a routerLink="/clients/purchase"
+              [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/clients/purchase')}"
+              class="text-gray-200 hover:bg-sky-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Comprar</a>
+
+              <a routerLink="/clients/movie"
+              [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/clients/movie')}"
+              class="text-gray-200 hover:bg-sky-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Peliculas</a>
+
+              <a routerLink="/clients/show"
+              [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/clients/show')}"
+              class="text-gray-200 hover:bg-sky-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Funciones</a>
           </div>
         </div>
       </div>
       <div class="hidden md:block">
         <div class="ml-4 flex items-center md:ml-6">
           <div class="ml-3 relative">
-            <div>
+            <div *ngIf="user">
               <button type="button" (click)="profileDropdown = !profileDropdown"
                 class="max-w-xs bg-sky-600 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-sky-600 focus:ring-white"
                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
@@ -24,6 +36,7 @@
                 <span class="m-2 text-white">{{user.name}}</span>
               </button>
             </div>
+            <span *ngIf="user == null" routerLink="../auth/login" class="m-2 text-white">Inicia sesión</span>
             <div [ngClass]="{'hidden': !profileDropdown}"
               class="transition-all origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
               role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
@@ -63,18 +76,38 @@
 
   <div [ngClass]="{'hidden': !mobileDropdown}" class="md:hidden" id="mobile-menu">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a routerLink="/sales/new-sale"
-        [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/sales/new-sale')}"
-        class="text-gray-200 hover:bg-sky-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Nueva venta</a>
+      <a routerLink="/client/home" [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/client/home')}"
+        class="text-gray-200 hover:bg-sky-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+    </div>
+
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a routerLink="/client/purchase" [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/client/purchase')}"
+        class="text-gray-200 hover:bg-sky-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Comprar</a>
+    </div>
+
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a routerLink="/client/movie" [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/client/movie')}"
+        class="text-gray-200 hover:bg-sky-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Peliculas</a>
+    </div>
+
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a routerLink="/client/show" [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/client/show')}"
+        class="text-gray-200 hover:bg-sky-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Funciones</a>
+    </div>
+
+    <div *ngIf="user == null" class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a routerLink="../auth/login" [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/client/home')}"
+        class="text-gray-200 hover:bg-sky-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Incia sesión</a>
 
     </div>
-    <div class="pt-4 pb-3 border-t border-sky-700">
-      <div class="flex items-center px-5">
+    <div *ngIf="user" class="pt-4 pb-3 border-t border-sky-700">
+      <div  class="flex items-center px-5">
         <div class="ml-3">
           <div class="text-base font-semibold leading-none text-white">{{user.name}}</div>
           <div class="text-sm font-thin leading-none text-white">{{user.email}}</div>
         </div>
       </div>
+
       <div class="mt-3 px-2 space-y-1">
         <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-sky-700">Perfil</a>
 

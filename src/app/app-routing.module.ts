@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from './core/guards/admin.guard';
+import { ClientGuard } from './core/guards/client.guard';
 import { EmployeeGuard } from './core/guards/employee.guard';
 import { NotfoundComponent } from './shared/notfound/notfound.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/clients',
     pathMatch: 'full'
   },
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
     path: 'sales',
     loadChildren: () => import('./modules/sales/sales.module').then(m => m.SalesModule),
     canActivate: [EmployeeGuard]
+  },
+  {
+    path: 'clients',
+    loadChildren: () => import('./modules/clients/clients.module').then(m => m.ClientsModule)
   },
   {
     path: '**',
