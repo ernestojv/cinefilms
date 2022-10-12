@@ -67,7 +67,7 @@
                   class="w-full h-8 my-6 bg-sky-600 rounded-md text-white flex items-center justify-center font-medium">
                   Pantalla
                 </div>
-                <div class="grid grid-cols-12 gap-4 items-center justify-center">
+                <div class="grid grid-cols-3 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center justify-center">
                   <div *ngFor="let seat of seats" class="col-span-1">
                     <div class="flex items-center justify-center rounded-md">
                       <input type="checkbox" [id]="seat.seat" [value]="seat.seat" (change)="selectSeat(seat)" />
