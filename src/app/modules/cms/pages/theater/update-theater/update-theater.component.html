@@ -1,0 +1,51 @@
+<div class="grid p-8 gap-8">
+  <div class="min-w-0 flex-1">
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Editar sala
+    </h2>
+  </div>
+
+  <div class="">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:col-span-3 md:mt-0">
+        <form *ngIf="theater != null" [formGroup]="theaterForm">
+          <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="bg-white px-4 py-5 sm:p-6">
+              <div class="grid grid-cols-6 gap-6">
+
+                <div class="col-span-6 sm:col-span-2">
+                  <label for="number" class="block text-sm font-medium text-gray-700">Número</label>
+                  <input formControlName="number" type="number" name="number" id="number" autocomplete="family-name"
+                    class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-4">
+                  <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+                  <input formControlName="name" type="text" name="name" id="name" autocomplete="given-name"
+                    class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                  <label for="rows" class="block text-sm font-medium text-gray-700">Filas</label>
+                  <input formControlName="rows" type="number" name="rows" id="rows" autocomplete="rows"
+                    class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                  <label for="columns" class="block text-sm font-medium text-gray-700">Columnas</label>
+                  <input formControlName="columns" type="number" name="columns" id="columns" autocomplete="columns"
+                    class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                </div>
+
+
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+              <button (click)="updateTheater()" type="submit"
+                class="inline-flex justify-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">Guardar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

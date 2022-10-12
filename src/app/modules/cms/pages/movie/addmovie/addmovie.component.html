@@ -1,0 +1,91 @@
+<div class="grid p-8 gap-8">
+  <div class="min-w-0 flex-1">
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Añadir pelicula
+    </h2>
+  </div>
+
+  <div class="">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:col-span-3 md:mt-0">
+        <form [formGroup]="movieForm">
+          <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="bg-white px-4 py-5 sm:p-6">
+              <div class="grid grid-cols-6 gap-6">
+                <div class="col-span-6">
+                  <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+                  <input formControlName="name" type="text" name="name" id="name" autocomplete="given-name"
+                    class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                  <label for="realeaseDate" class="block text-sm font-medium text-gray-700">Fecha de estreno</label>
+                  <input formControlName="realeaseDate" type="date" name="realeaseDate" id="realeaseDate"
+                    autocomplete="family-name"
+                    class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                  <label for="duration" class="block text-sm font-medium text-gray-700">Duración
+                    <small>(Minutos)</small></label>
+
+                  <input formControlName="duration" type="number" name="duration" id="duration"
+                    autocomplete="duration"
+                    class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                  <label for="category" class="block text-sm font-medium text-gray-700">Categoria</label>
+                  <select formControlName="categoryId" id="category" name="category" autocomplete="category"
+                    class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                    <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
+                  </select>
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                  <label for="mpaaCategory" class="block text-sm font-medium text-gray-700">Categoria MPAA</label>
+                  <select formControlName="mpaaCategory" id="mpaaCategory" name="mpaaCategory"
+                    autocomplete="mpaaCategory"
+                    class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                    <option value="G">G - Todas las edades, público en general.</option>
+                    <option value="PG">PG - Guía paternal sugerida, algunos materiales pueden no ser adecuados para
+                      pre-adolescentes.</option>
+                    <option value="R">R - Restringido - Los menores de 17 años requieren estar acompañados por un padre
+                      o tutor adulto.</option>
+                    <option value="X">X - No se admiten menores de 17 años.</option>
+                  </select>
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                  <label for="format" class="block text-sm font-medium text-gray-700">Formato</label>
+                  <select formControlName="format" id="forma" name="forma" autocomplete="format"
+                    class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                    <option value="2D">2D</option>
+                    <option value="3D">3D</option>
+                    <option value="4DX">4DX</option>
+                  </select>
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                  <label for="imageUrl" class="block text-sm font-medium text-gray-700">Imagen URL</label>
+                  <input formControlName="image" type="text" name="imageUrl" id="imageUrl" autocomplete="imageUrl"
+                    class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6">
+                  <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
+                  <textarea formControlName="description" type="text" name="description" id="description"
+                    autocomplete="description"
+                    class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+              <button (click)="addMovie()" type="submit"
+                class="inline-flex justify-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">Agregar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
