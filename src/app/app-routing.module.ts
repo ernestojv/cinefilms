@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from './core/guards/admin.guard';
-import { ClientGuard } from './core/guards/client.guard';
 import { EmployeeGuard } from './core/guards/employee.guard';
 import { NotfoundComponent } from './shared/notfound/notfound.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/clients',
+    redirectTo: '/clients/home',
     pathMatch: 'full'
   },
   {

@@ -11,7 +11,7 @@
               [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/clients/home')}"
               class="text-gray-200 hover:bg-sky-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
 
-              <a routerLink="/clients/purchase"
+              <a *ngIf="user" routerLink="/clients/purchase"
               [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/clients/purchase')}"
               class="text-gray-200 hover:bg-sky-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Comprar</a>
 
@@ -81,7 +81,7 @@
     </div>
 
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a routerLink="/client/purchase" [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/client/purchase')}"
+      <a *ngIf="user" routerLink="/client/purchase" [ngClass]="{'bg-sky-700 text-white font-bold': router.url.includes('/client/purchase')}"
         class="text-gray-200 hover:bg-sky-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Comprar</a>
     </div>
 
