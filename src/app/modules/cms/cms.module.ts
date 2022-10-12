@@ -20,7 +20,9 @@ import { UpdateTheaterComponent } from './pages/theater/update-theater/update-th
 import { ShowComponent } from './pages/show/show.component';
 import { AddShowComponent } from './pages/show/add-show/add-show.component';
 import { UpdateShowComponent } from './pages/show/update-show/update-show.component';
-import { ShowDetailComponent } from './pages/show/show-detail/show-detail.component';
+import { ProductComponent } from './pages/product/product.component';
+import { AddProductComponent } from './pages/product/add-product/add-product.component';
+import { UpdateProductComponent } from './pages/product/update-product/update-product.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { ShowDetailComponent } from './pages/show/show-detail/show-detail.compon
     ShowComponent,
     AddShowComponent,
     UpdateShowComponent,
-    ShowDetailComponent
+    ProductComponent,
+    AddProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     CommonModule,

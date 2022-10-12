@@ -13,16 +13,18 @@
   </div>
 
   <section class="col-span-2">
-    <div class="bg-sky-600 grid grid-cols-3 text-white font-medium p-4 rounded-t-md">
+    <div class="bg-sky-600 grid grid-cols-4 text-white font-medium p-4 rounded-t-md">
       <p class="md:hidden">Funcion</p>
       <p class="hidden md:block">Pelicula</p>
       <p class="hidden md:block">Hora</p>
+      <p class="hidden md:block">Precio</p>
       <p class="hidden md:block">Sala</p>
     </div>
     <div *ngFor="let show of shows">
-      <div class="grid grid-cols-1 gap-2 md:grid-cols-3 p-4 border-b border-gray-200 bg-white items-center">
+      <div class="grid grid-cols-1 gap-2 md:grid-cols-4 p-4 border-b border-gray-200 bg-white items-center">
         <p class="font-medium">{{show.movieId.name}} - {{show.movieId.format}}</p>
         <p>{{show.dateTime | date:'short'}}</p>
+        <p>{{show.price | currency:'Q'}}</p>
         <div class="grid grid-cols-1 md:grid-cols-2 justify-between items-center">
           <p>{{show.theaterId.name}}</p>
           <button [routerLink]="['./update', show._id]" type="button"

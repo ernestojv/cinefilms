@@ -14,8 +14,10 @@ import { AddTheaterComponent } from './pages/theater/add-theater/add-theater.com
 import { UpdateTheaterComponent } from './pages/theater/update-theater/update-theater.component';
 import { ShowComponent } from './pages/show/show.component';
 import { AddShowComponent } from './pages/show/add-show/add-show.component';
-import { ShowDetailComponent } from './pages/show/show-detail/show-detail.component';
 import { UpdateShowComponent } from './pages/show/update-show/update-show.component';
+import { ProductComponent } from './pages/product/product.component';
+import { AddProductComponent } from './pages/product/add-product/add-product.component';
+import { UpdateProductComponent } from './pages/product/update-product/update-product.component';
 
 const routes: Routes = [
   {
@@ -75,12 +77,20 @@ const routes: Routes = [
         component: AddShowComponent
       },
       {
-        path: 'show/detail/:id',
-        component: ShowDetailComponent
-      },
-      {
         path: 'show/update/:id',
         component: UpdateShowComponent
+      },
+      {
+        path: 'product',
+        component: ProductComponent
+      },
+      {
+        path: 'product/add',
+        component: AddProductComponent
+      },
+      {
+        path: 'product/update/:id',
+        component: UpdateProductComponent
       }
     ]
   }
