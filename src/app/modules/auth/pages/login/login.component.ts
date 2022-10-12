@@ -28,23 +28,25 @@ export class LoginComponent implements OnInit {
     this.authService.getProfile().subscribe(() => {
       this.authService.loggedUser.subscribe(user => {
         if (user) {
-          switch (user.role) {
-            case 'admin':
-              this.router.navigate(['/cms']);
-              break;
-            case 'user':
-              this.router.navigate(['/home']);
-              break;
-            case 'employee':
-              this.router.navigate(['/idk']);
-              break;
-          }
+          this.redirect(user);
         }
       })
     })
   }
 
-
+  redirect(user: any) {
+    switch (user.role) {
+      case 'admin':
+        this.router.navigate(['/cms']);
+        break;
+      case 'user':
+        this.router.navigate(['/home']);
+        break;
+      case 'employee':
+        this.router.navigate(['/idk']);
+        break;
+    }
+  }
   login() {
     console.log(this.loginForm.value);
     if (this.loginForm.invalid) {
@@ -62,28 +64,31 @@ export class LoginComponent implements OnInit {
     let email = this.loginForm.value.email ? this.loginForm.value.email : '';
     let password = this.loginForm.value.password ? this.loginForm.value.password : '';
 
-    this.authService.login(email, password).subscribe(response => {
-      if (response) {
-        Swal.fire({
-          title: 'Bienvenido',
-          text: 'Inicio de sesión exitoso',
-          icon: 'success',
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 1500
-        });
-        this.router.navigate(['/auth/login']);
-      }
-    }, () => {
+    try {
+      this.authService.login(email, password).subscribe(user => {
+        if (user) {
+          Swal.fire({
+            title: 'Bienvenido',
+            text: 'Inicio de sesión exitoso',
+            icon: 'success',
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          window.location.reload();
+        }
+      });
+    } catch (error: any) {
       Swal.fire({
         title: 'Error',
-        text: `Usuario o contraseña incorrectos`,
+        text: error.message,
         icon: 'error',
         position: 'top-end',
         showConfirmButton: false,
         timer: 1500
       });
-    })
+    }
+
 
   }
 
